@@ -1,13 +1,23 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Para Ayumi</title><style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}body{background:#ffa1ef;color:#fff;overflow:hidden}.page{width:100vw;height:100vh;position:absolute;display:flex;flex-direction:column;justify-content:center;align-items:center;transition:.8s}.hidden{opacity:0;pointer-events:none;transform:translateY(40px)}h1{font-size:3rem;opacity:0;animation:fade 2s forwards}p{margin-top:20px;font-size:1.4rem;text-align:center;width:80%;opacity:0;animation:fade 2s .8s forwards}button{position:absolute;bottom:40px;padding:15px 40px;border:none;border-radius:30px;background:#fff;color:#f568b5;font-size:18px;cursor:pointer}.cards{display:flex;gap:35px;flex-wrap:wrap}.card{width:180px;height:240px;perspective:1000px;cursor:pointer}.inner{width:100%;height:100%;position:relative;transition:.8s;transform-style:preserve-3d}.card.flip .inner{transform:rotateY(180deg)}.front,.back{position:absolute;width:100%;height:100%;display:flex;justify-content:center;align-items:center;background:#f568b5;border-radius:20px;backface-visibility:hidden;font-size:2rem}.front{font-size:60px}.back{transform:rotateY(180deg)}@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+<!DOCTYPE html><html lang='pt-BR'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Para Ayumi</title><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif}
+body{background:#ffa1ef;color:#fff;overflow:hidden}
+.page{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:24px;transition:.7s}
+.hidden{opacity:0;pointer-events:none;transform:translateY(30px)}
+h1{font-size:clamp(2rem,8vw,3rem);opacity:0;animation:f 1.5s forwards}
+p{margin-top:18px;max-width:330px;text-align:center;font-size:clamp(1.1rem,4.5vw,1.5rem);line-height:1.5;opacity:0;animation:f 1.5s .5s forwards}
+button{position:absolute;bottom:max(30px,env(safe-area-inset-bottom));padding:14px 36px;border:none;border-radius:999px;background:#fff;color:#f568b5;font-size:18px}
+.cards{display:flex;gap:14px;justify-content:center;align-items:center;width:100%}
+.card{width:min(28vw,120px);height:min(42vw,170px);perspective:1000px;cursor:pointer}
+.inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:.8s}.flip .inner{transform:rotateY(180deg)}
+.front,.back{position:absolute;inset:0;background:#f568b5;border-radius:18px;display:flex;align-items:center;justify-content:center;backface-visibility:hidden;box-shadow:0 10px 20px rgba(0,0,0,.2)}
+.front{font-size:2.2rem}.back{transform:rotateY(180deg);font-size:1.6rem}.back{transform:rotateY(180deg)}
+@keyframes f{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
 </style></head><body>
-<div class="page" id="page1"><h1>Para Ayumi</h1><p>A mulher mais linda, inteligente, forte e capaz do mundo</p><button onclick="nextPage()">Avançar →</button></div>
-<div class="page hidden" id="page2"><div class="cards">
-<div class="card" onclick="flip(this)"><div class="inner"><div class="front">❤️</div><div class="back">Eu</div></div></div>
-<div class="card" onclick="flip(this)"><div class="inner"><div class="front">❤️</div><div class="back">Te</div></div></div>
-<div class="card" onclick="flip(this)"><div class="inner"><div class="front">❤️</div><div class="back">Amo</div></div></div>
+<div class='page' id='p1'><h1>Para Ayumi</h1><p>A mulher mais linda, inteligente, forte e capaz do mundo</p><button onclick='n()'>Avançar →</button></div>
+<div class='page hidden' id='p2'><div class='cards'>
+<div class='card' onclick='this.classList.toggle("flip")'><div class='inner'><div class='front'>❤️</div><div class='back'>Eu</div></div></div>
+<div class='card' onclick='this.classList.toggle("flip")'><div class='inner'><div class='front'>❤️</div><div class='back'>Te</div></div></div>
+<div class='card' onclick='this.classList.toggle("flip")'><div class='inner'><div class='front'>❤️</div><div class='back'>Amo</div></div></div>
 </div></div>
-<script>
-function nextPage(){document.getElementById('page1').classList.add('hidden');setTimeout(()=>document.getElementById('page2').classList.remove('hidden'),400)}
-function flip(c){c.classList.toggle('flip')}
-</script></body></html>
+<script>function n(){p1.classList.add('hidden');setTimeout(()=>p2.classList.remove('hidden'),350)}</script>
+</body></html>
